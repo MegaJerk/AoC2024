@@ -45,7 +45,7 @@ var totalDistance = 0;
 function sortNumbers(x,y){return x-y;}
 
 sortedLeftArray.forEach(function(value, index){
-	totalDistance += Math.abs(value - sortedRightArray[index]);
+  totalDistance += Math.abs(value - sortedRightArray[index]);
 });
 
 console.log(totalDistance);
@@ -67,17 +67,17 @@ var instanceCounter = {};
 var similarityScore = 0;
 
 rightArray.forEach(function(value){
-	if (instanceCounter[value]) {
-		instanceCounter[value] += 1;
-	} else {
-		instanceCounter[value] = 1;
-	}
+  if (instanceCounter[value]) {
+    instanceCounter[value] += 1;
+  } else {
+    instanceCounter[value] = 1;
+  }
 });
 
 leftArray.forEach(function(value){
-	if (instanceCounter[value]) {
-		similarityScore += (value * instanceCounter[value]);
-	}
+  if (instanceCounter[value]) {
+    similarityScore += (value * instanceCounter[value]);
+  }
 });
 
 console.log(similarityScore);
