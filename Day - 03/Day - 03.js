@@ -69,15 +69,15 @@ var matchInstructionParameters = new RegExp("(\\d+)", "g");
 var validInstructions = instructions.match(matchInstructions);
 var totalValueOfValidInstructions = 0;
 validInstructions.forEach(function(instruction, index){
-	var instructionParameters = instruction.match(matchInstructionParameters);
-	var firstParam = parseInt(instructionParameters[0], 10);
-	var secondParam = parseInt(instructionParameters[1], 10);
+  var instructionParameters = instruction.match(matchInstructionParameters);
+  var firstParam = parseInt(instructionParameters[0], 10);
+  var secondParam = parseInt(instructionParameters[1], 10);
 
-	if (!Array.isArray(executedInstructions) || typeof firstParam !== "number" || typeof secondParam !== "number") {
-		debugger;
-		return 0;
-	}
-	totalValueOfValidInstructions += (firstParam * secondParam);
+  if (!Array.isArray(executedInstructions) || typeof firstParam !== "number" || typeof secondParam !== "number") {
+    debugger;
+    return 0;
+  }
+  totalValueOfValidInstructions += (firstParam * secondParam);
 });
 
 console.log(`totalValueOfValidInstructions: ${totalValueOfValidInstructions}`); //167090022
@@ -93,21 +93,21 @@ var validExtraInstructions = instructions.match(matchExtraInstructions);
 var totalValueOfValidExtraInstructions = 0;
 
 validExtraInstructions.forEach(function(instruction, index){
-	var instructionParameters;
-	var firstParam;
-	var secondParam;
+  var instructionParameters;
+  var firstParam;
+  var secondParam;
 
-	if (instruction === "don't()") {
-		mulSwitch = false;
-	} else if (instruction === "do()") {
-		mulSwitch = true;
-	} else if (mulSwitch) {
-		instructionParameters = instruction.match(matchInstructionParameters);
-		firstParam = parseInt(instructionParameters[0], 10);
-		secondParam = parseInt(instructionParameters[1], 10);
+  if (instruction === "don't()") {
+    mulSwitch = false;
+  } else if (instruction === "do()") {
+    mulSwitch = true;
+  } else if (mulSwitch) {
+    instructionParameters = instruction.match(matchInstructionParameters);
+    firstParam = parseInt(instructionParameters[0], 10);
+    secondParam = parseInt(instructionParameters[1], 10);
 
-		totalValueOfValidExtraInstructions += (firstParam * secondParam);
-	}
+    totalValueOfValidExtraInstructions += (firstParam * secondParam);
+  }
 });
 
 console.log(`totalValueOfValidExtraInstructions: ${totalValueOfValidExtraInstructions}`); // 89823704
